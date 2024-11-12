@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    container_name: ReviewsShelf
+    environment:
+      POSTGRES_USER: ${DATASOURCE_USERNAME}
+      POSTGRES_PASSWORD: ${DATASOURCE_PASSWORD}
+      POSTGRES_DB: ${DATASOURCE_DATABASE}
+    ports:
+      - "${DATASOURCE_PORT}:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - app-network
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    restart: always
+    container_name: jenkins
+    user: root
+    environment:
+      JENKINS_USER: admin
+      JENKINS_PASS: admin_pass
+    ports:
+      - "8080:8080"
+      - "50000:50000"  # Port for agent communication
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock  # Allows Jenkins to use Docker
+      - ./ssh-secret:/root/.ssh  # Mounts your SSH keys for GitHub access from ssh-secret folder
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/login"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db-data:
+  jenkins_home:
+
+networks:
+  app-network:
+    driver: bridge
