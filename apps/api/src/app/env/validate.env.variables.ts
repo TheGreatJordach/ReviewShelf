@@ -1,8 +1,23 @@
 import { IsInt, IsNotEmpty, IsPositive, IsString, IsStrongPassword, validateSync } from 'class-validator';
 import { plainToInstance } from 'class-transformer';
 import { HttpException, HttpStatus, ValidationError } from '@nestjs/common';
-import { error } from '@angular/compiler-cli/src/transformers/util';
+import { HandleError } from '@review-shelf-1.0.0/common';
 
+
+
+/**
+ * ValidateEnvVariables is a class that defines the structure and validation rules
+ * for environment variables related to the data source configuration.
+ *
+ * Properties:
+ * - DATASOURCE_USERNAME: A non-empty string representing the username for the data source.
+ * - DATASOURCE_PASSWORD: A strong password string for the data source.
+ * - DATASOURCE_DATABASE: A non-empty string indicating the database name.
+ * - DATASOURCE_HOST: A non-empty string specifying the host address of the data source.
+ * - DATASOURCE_PORT: A positive integer representing the port number for the data source.
+ *
+ * The class uses decorators from 'class-validator' to enforce validation rules.
+ */
 export class ValidateEnvVariables {
 
   @IsString()
@@ -20,10 +35,24 @@ export class ValidateEnvVariables {
   @IsInt()
   @IsPositive()
   DATASOURCE_PORT:number
-}
 
+  }
+
+
+/**
+ * Represents a type that includes all the keys of the `ValidateEnvVariables` class.
+ * This is used to ensure type safety when accessing properties of `ValidateEnvVariables`.
+ */
 type envValidationKeys = keyof ValidateEnvVariables;
 
+
+/**
+ * Formats validation errors into a list of readable messages.
+ *
+ * @param errors - An array of ValidationError objects to be formatted.
+ * @returns An array of strings, each representing a formatted error message
+ *          with the property name and the corresponding validation message.
+ */
 function formatValidationErrors(errors: ValidationError[]): string[] {
   const returnedMessages: string[]= []
   errors.forEach(error => {
@@ -36,6 +65,16 @@ function formatValidationErrors(errors: ValidationError[]): string[] {
   return returnedMessages;
 }
 
+
+/**
+ * Validates the results of environment variable validation by checking each property
+ * against the list of validation errors. Returns an array of validation results and
+ * formatted error messages.
+ *
+ * @param validated - An instance of ValidateEnvVariables containing the environment variables.
+ * @param errors - An array of ValidationError objects representing validation errors.
+ * @returns An array of strings indicating the validation status of each property and any error messages.
+ */
 function validateResults(validated: ValidateEnvVariables, errors: ValidationError[]) {
   const validResults : string[]=[]
   const errorMessages = formatValidationErrors(errors)
@@ -58,6 +97,16 @@ function validateResults(validated: ValidateEnvVariables, errors: ValidationErro
 
 }
 
+
+
+/**
+ * Validates and loads environment variables into a strongly-typed object.
+ *
+ * @param envs - A record of environment variables to be validated.
+ * @param processResult - A function to process validation results, defaults to `validateResults`.
+ * @returns A `ValidateEnvVariables` instance containing validated environment variables.
+ * @throws {HttpException} If any environment variable fails validation, an exception is thrown with details.
+ */
 
 export function loadValidatedEnv(
   envs:Record<string, unknown>,
