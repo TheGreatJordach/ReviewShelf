@@ -1,5 +1,8 @@
 
 ---
+<div>
+<img src="./project-docs/solid-stack-logo.svg" alt="app logo">
+</div>
 
 # ReviewShelf
 

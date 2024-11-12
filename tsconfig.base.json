@@ -14,7 +14,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@review-shelf-1.0.0/auth": ["libs/auth/src/index.ts"],
+      "@review-shelf-1.0.0/books": ["libs/books/src/index.ts"],
+      "@review-shelf-1.0.0/bookshelf": ["libs/bookshelf/src/index.ts"],
+      "@review-shelf-1.0.0/common": ["libs/common/src/index.ts"],
+      "@review-shelf-1.0.0/logging": ["libs/logging/src/index.ts"],
+      "@review-shelf-1.0.0/notifications": ["libs/notifications/src/index.ts"],
+      "@review-shelf-1.0.0/users": ["libs/users/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
