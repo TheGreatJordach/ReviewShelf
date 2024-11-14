@@ -1,31 +1,35 @@
-In a newly created `CHANGELOG.md`, it's common to start with a brief overview and an initial entry for the current version, summarizing the main features, initial setup, or structure of the project at this stage. Here's a suggested structure for the initial `CHANGELOG.md`:
-
----
-
 # Changelog
 
-All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/).
-
-## [Unreleased]
-- This section will track planned or in-progress changes and updates before the next official release.
-
-## [0.1.0] - YYYY-MM-DD
+## [0.2.0] - 2024-11-14
 
 ### Added
-- Initial setup of the project structure.
-- Environment validation using `class-validator` for sensitive variables (e.g., `DATASOURCE_USERNAME`, `DATASOURCE_PASSWORD`).
-- Custom `loadValidatedEnv` function to handle and validate environment variables with detailed error reporting.
-- Configurable and detailed exception handling for missing or invalid environment variables.
+- **Docker and Jenkins Setup**:
+  - Created a `docker-compose.yml` file to manage dependencies, including:
+    - **Jenkins** for CI/CD pipeline management.
+    - **PostgreSQL** as the primary database.
+    - **Mailhog** for testing email workflows.
+    - **Redis** for caching or session management.
+  - Configured Jenkins to connect with GitHub and tested a successful build to ensure continuous integration functionality.
 
----
+- **Logging and Monitoring**:
+  - Implemented custom logging using **NestJS-Pino** and **nestjs-flub** for structured and efficient logging.
+  - Added logging configurations to capture detailed information, supporting easier debugging and tracking of requests.
 
-### Additional Notes:
-As the project progresses, you can add entries under the `Added`, `Fixed`, `Changed`, `Removed`, and `Security` sections for each version. For example:
+### Updated
+- **Environment Validation**:
+  - Fine-tuned environment variable validation with `class-validator` to enforce secure and complete configuration setup.
 
-- **Added**: New features, libraries, or components.
-- **Fixed**: Bugs or issues that have been resolved.
-- **Changed**: Modified functionality or structure of existing features.
-- **Removed**: Features or components that have been removed from the codebase.
-- **Security**: Any important security fixes or updates.
+## [0.1.1] - 2024-11-13
 
-This structure helps team members and future collaborators understand the project’s history and key milestones at a glance.
+### Added
+- **Database Configuration**:
+  - Configured PostgreSQL as the main database for the application.
+  - Integrated TypeORM with `TypeOrmModule` setup for managing database connections and entities.
+  - Verified successful connection of the app to PostgreSQL.
+
+## [0.1.0] - 2024-11-10
+
+### Added
+- Initial NestJS setup for backend infrastructure.
+- Environment variable validation using `class-validator` to ensure secure configuration loading.
+- Custom error handling for environment validation to simplify debugging during setup.
