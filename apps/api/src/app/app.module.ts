@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, ValidationPipe } from '@nestjs/common';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { getDatabaseConfig } from './db/db.config';
 import { loadValidatedEnv } from './env/validate.env.variables';
 import { LoggingModule } from '@review-shelf-1.0.0/logging';
+import { APP_PIPE } from '@nestjs/core';
 
 @Module({
   imports: [ConfigModule.forRoot({isGlobal: true, envFilePath: '.env', validate:loadValidatedEnv}),
@@ -16,6 +17,16 @@ import { LoggingModule } from '@review-shelf-1.0.0/logging';
      useFactory: getDatabaseConfig
    }),LoggingModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService,{
+    provide: APP_PIPE,
+    useValue : new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform:true,
+      transformOptions:{
+        enableImplicitConversion:true,
+      }
+    })
+  }],
 })
 export class AppModule {}
