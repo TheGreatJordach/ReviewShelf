@@ -7,7 +7,7 @@ export class PublicUserDto implements IUser{
   @Expose()
   readonly name!: string;
   @Expose()
-  readonly username!: string;
+  readonly userName!: string;
   @Expose()
   readonly email!: string;
 }

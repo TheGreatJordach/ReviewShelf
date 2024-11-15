@@ -10,5 +10,5 @@ export class BaseUserDto implements IUser{
   readonly name!: string;
   @IsNotEmpty()
   @IsString()
-  readonly username!: string;
+  readonly userName!: string;
 }

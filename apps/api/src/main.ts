@@ -9,6 +9,8 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { FlubErrorHandler } from 'nestjs-flub';
 import { Logger, LoggerErrorInterceptor } from 'nestjs-pino';
+import { CustomFlubErrorHandler } from './app/filters/custom-flub.error.handler';
+import { PrettyHttpErrorDisplay } from './app/filters/pretty.http.error.display';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {bufferLogs: true});
@@ -17,11 +19,11 @@ async function bootstrap() {
   const port = process.env.PORT || 3000;
   await app.listen(port);
   // Enable nestJs for Error Formatting
-  app.useGlobalFilters(new FlubErrorHandler())
-
+  // app.useGlobalFilters(new FlubErrorHandler())
+   app.useGlobalFilters(new PrettyHttpErrorDisplay(""))
   const logs = app.get(Logger);
   // Enable Pino logger globally
-  app.useLogger(app.get(Logger))
+   app.useLogger(app.get(Logger))
 
   // For the automatic HTTP logs
   app.useGlobalInterceptors(new LoggerErrorInterceptor())

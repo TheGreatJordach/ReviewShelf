@@ -1,0 +1,67 @@
+### Send POST request with json body
+### Update User profile with ID | MUST FAILD
+PATCH http://localhost:3000/api/users/12
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
+
+### | MUST FAILD
+### Update User profile with ID
+PATCH http://localhost:3000/api/users/12
+Content-Type: application/json
+
+{
+  "name": "Jordach",
+  "userName": "",
+  "password": "12345",
+  "email": "jordach.@me.com"
+}
+
+### | MUST FAILD
+### Update User profile with ID | MUST FAILD
+PATCH http://localhost:3000/api/users/12
+Content-Type: application/json
+
+{
+  "name": "Jordach",
+  "userName": "MAKAYA",
+  "password": "12345",
+  "email": "jordach.@me.com"
+}
+
+### | MUST FAILD
+### Update User profile with ID | MUST FAILD
+PATCH http://localhost:3000/api/users/12
+Content-Type: application/json
+
+{
+  "name": "Jordach",
+  "userName": "MAKAYA",
+  "password": "StrongP@ssword123",
+  "email": "jordach.@me.com"
+}
+
+### | MUST FAIL - Because of Email
+### Update User profile with ID | MUST FAILD
+PATCH http://localhost:3000/api/users/12
+Content-Type: application/json
+
+{
+  "name": "Jordach",
+  "userName": "MAKAYA",
+  "email": "jordach.@me.com"
+}
+
+### | MUST PASS
+### Update User profile with ID | MUST FAILD
+PATCH http://localhost:3000/api/users/12
+Content-Type: application/json
+
+{
+  "name": "Jordach",
+  "userName": "MAKAYA",
+  "email": "jordach.makaya@me.com"
+}
