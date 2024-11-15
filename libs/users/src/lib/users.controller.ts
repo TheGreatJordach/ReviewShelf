@@ -1,6 +1,5 @@
-import { Body, Controller, Delete, Get, Param, Patch, UseFilters } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { FlubErrorHandler } from 'nestjs-flub';
 import { IdDto, UpdateUserDto } from '@review-shelf-1.0.0/common';
 import { logger } from 'nx/src/utils/logger';
 
@@ -15,7 +14,7 @@ export class UsersController {
   @Get(":id")
  private getUserProfile(@Param('id') id: number) {
     logger.info(`Will retrieve user with id : ${id}`);
-    return this.usersService.getProfile(id);
+    return this.usersService.getUserProfile(id);
   }
 
   @Patch(':id')
@@ -25,12 +24,12 @@ export class UsersController {
   ) {
 
    logger.info(`UpdateUserProfile  ${JSON.stringify(updateUserDto)}\nUserID : ${id}`);
-   return this.usersService.updateProfile(id, updateUserDto);
+   return this.usersService.updateUserProfile(id, updateUserDto);
   }
 
   @Delete(':id')
   private deleteUserProfile(@Param() { id }: IdDto) {
     logger.info(`Will delete user with id : ${id}`);
-    return this.usersService.deleteProfile(id);
+    return this.usersService.deleteUserProfile(id);
   }
 }

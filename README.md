@@ -7,7 +7,13 @@
 # ReviewShelf
 
 > **A Modular Books & Reviews Platform Built for Scalability and Performance**  
-> **By Jordach Makaya**
+> **By Jordach Makaya** <br> 
+
+<div> 
+
+[![wakatime](https://wakatime.com/badge/user/018ebde5-003c-47c2-8ab0-3530226c609b/project/06af8958-660b-4fb5-8301-2e882e722777.svg)](https://wakatime.com/badge/user/018ebde5-003c-47c2-8ab0-3530226c609b/project/06af8958-660b-4fb5-8301-2e882e722777)
+
+</div>
 
 ---
 
