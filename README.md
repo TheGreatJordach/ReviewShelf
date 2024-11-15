@@ -11,6 +11,18 @@
 
 ---
 
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_ReviewShelf&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=TheGreatJordach_ReviewShelf)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_ReviewShelf&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=TheGreatJordach_ReviewShelf)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_ReviewShelf&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=TheGreatJordach_ReviewShelf)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_ReviewShelf&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=TheGreatJordach_ReviewShelf)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_ReviewShelf&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=TheGreatJordach_ReviewShelf)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_ReviewShelf&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=TheGreatJordach_ReviewShelf)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_ReviewShelf&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=TheGreatJordach_ReviewShelf)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_ReviewShelf&metric=bugs)](https://sonarcloud.io/summary/new_code?id=TheGreatJordach_ReviewShelf)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_ReviewShelf&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=TheGreatJordach_ReviewShelf)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_ReviewShelf&metric=coverage)](https://sonarcloud.io/summary/new_code?id=TheGreatJordach_ReviewShelf)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=TheGreatJordach_ReviewShelf&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=TheGreatJordach_ReviewShelf)
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)

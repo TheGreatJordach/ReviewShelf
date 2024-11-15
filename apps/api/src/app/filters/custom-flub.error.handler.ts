@@ -1,5 +1,5 @@
 import { FlubErrorHandler } from 'nestjs-flub';
-import { ArgumentsHost, HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { ArgumentsHost, HttpException, Injectable } from '@nestjs/common';
 import {Response} from 'express';
 import * as process from 'node:process';
 /**
@@ -40,6 +40,7 @@ export class CustomFlubErrorHandler extends FlubErrorHandler {
         success:false,
         statusCode: status,
         date : new Date().toISOString(),
+        ...(stack && { stack })
       })
     } else {
       return  super.catch(exception, host); // default Flub behavior (HTML response)

@@ -7,9 +7,7 @@
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
-import { FlubErrorHandler } from 'nestjs-flub';
 import { Logger, LoggerErrorInterceptor } from 'nestjs-pino';
-import { CustomFlubErrorHandler } from './app/filters/custom-flub.error.handler';
 import { PrettyHttpErrorDisplay } from './app/filters/pretty.http.error.display';
 
 async function bootstrap() {

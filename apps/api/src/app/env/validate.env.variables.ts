@@ -61,7 +61,7 @@ function formatValidationErrors(errors: ValidationError[]): string[] {
   const returnedMessages: string[]= []
   errors.forEach(error => {
     if(error.constraints){
-      for (const [constraint, message] of Object.values(error.constraints)) {
+      for (const message of Object.values(error.constraints)) {
         returnedMessages.push(`${error.property} : ${message}`);
       }
     }
