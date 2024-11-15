@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { UpdateUserDto } from '@review-shelf-1.0.0/common';
+import { BaseUserDto, IUser, UpdateUserDto } from '@review-shelf-1.0.0/common';
+import { IUserAuthService } from '@review-shelf-1.0.0/auth';
 
 @Injectable()
-export class UsersService {
+export class UsersService implements IUserAuthService{
 
 
   getProfile(id:number) {
@@ -16,5 +17,13 @@ export class UsersService {
 
   deleteProfile(id:number) {
     return `This Service delete the user profile information with id ${id}`
+  }
+
+  createUser(userDto: BaseUserDto): Promise<IUser | null> {
+    return Promise.resolve(null);
+  }
+
+  findUserByEmail(email: string): Promise<IUser | null> {
+    return Promise.resolve(null);
   }
 }

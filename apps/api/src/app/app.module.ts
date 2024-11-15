@@ -8,7 +8,8 @@ import { getDatabaseConfig } from './db/db.config';
 import { loadValidatedEnv } from './env/validate.env.variables';
 import { LoggingModule } from '@review-shelf-1.0.0/logging';
 import { APP_PIPE } from '@nestjs/core';
-import { UsersModule } from '@review-shelf-1.0.0/users';
+import { UsersModule, UsersService } from '@review-shelf-1.0.0/users';
+import { AuthModule } from '@review-shelf-1.0.0/auth';
 
 @Module({
   imports: [ConfigModule.forRoot({isGlobal: true, envFilePath: '.env', validate:loadValidatedEnv}),
@@ -18,7 +19,8 @@ import { UsersModule } from '@review-shelf-1.0.0/users';
      useFactory: getDatabaseConfig
    }),
     LoggingModule,
-    UsersModule],
+    UsersModule,
+    AuthModule,],
   controllers: [AppController],
   providers: [AppService,{
     provide: APP_PIPE,
@@ -30,6 +32,7 @@ import { UsersModule } from '@review-shelf-1.0.0/users';
         enableImplicitConversion:true,
       }
     })
-  }],
+  },
+    {provide: "IUserServiceAuthOperations", useClass: UsersService}],
 })
 export class AppModule {}

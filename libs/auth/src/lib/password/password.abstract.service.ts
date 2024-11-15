@@ -1,6 +1,7 @@
 import { IHashAlgo } from './hash/hash.interface';
-;
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export abstract class PasswordAbstractService {
   protected constructor(protected readonly hashAlgo: IHashAlgo) {}
 
