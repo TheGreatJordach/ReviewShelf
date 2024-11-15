@@ -19,6 +19,7 @@
       "@review-shelf-1.0.0/books": ["libs/books/src/index.ts"],
       "@review-shelf-1.0.0/bookshelf": ["libs/bookshelf/src/index.ts"],
       "@review-shelf-1.0.0/common": ["libs/common/src/index.ts"],
+      "@review-shelf-1.0.0/decorators": ["libs/decorators/src/index.ts"],
       "@review-shelf-1.0.0/logging": ["libs/logging/src/index.ts"],
       "@review-shelf-1.0.0/notifications": ["libs/notifications/src/index.ts"],
       "@review-shelf-1.0.0/users": ["libs/users/src/index.ts"]

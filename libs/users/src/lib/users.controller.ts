@@ -3,11 +3,11 @@ import { UsersService } from './users.service';
 import { FlubErrorHandler } from 'nestjs-flub';
 import { IdDto, UpdateUserDto } from '@review-shelf-1.0.0/common';
 import { logger } from 'nx/src/utils/logger';
-import { PrettyHttpErrorDisplay } from '../../../../apps/api/src/app/filters/pretty.http.error.display';
+
 
 
 //@UseFilters(new FlubErrorHandler({ theme: 'dark', quote: false }))
-@UseFilters(new PrettyHttpErrorDisplay("UserService"))
+//@UseFilters(new PrettyHttpErrorDisplay("UserService"))
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}

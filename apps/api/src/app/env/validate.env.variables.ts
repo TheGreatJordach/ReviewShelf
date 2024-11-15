@@ -15,7 +15,7 @@ import { HttpException, HttpStatus, ValidationError } from '@nestjs/common';
  * - DATASOURCE_DATABASE: A non-empty string indicating the database name.
  * - DATASOURCE_HOST: A non-empty string specifying the host address of the data source.
  * - DATASOURCE_PORT: A positive integer representing the port number for the data source.
- *
+ * - SALT_ROUND : A positive integer representing the salt used for Bcrypt Implementation.
  * The class uses decorators from 'class-validator' to enforce validation rules.
  */
 export class ValidateEnvVariables {
@@ -35,6 +35,10 @@ export class ValidateEnvVariables {
   @IsInt()
   @IsPositive()
   DATASOURCE_PORT:number
+
+  @IsInt()
+  @IsPositive()
+  SALT_ROUND:number
 
   }
 
@@ -86,6 +90,7 @@ function validateResults(validated: ValidateEnvVariables, errors: ValidationErro
     'DATASOURCE_DATABASE',
     'DATASOURCE_HOST',
     'DATASOURCE_PORT',
+    'SALT_ROUND',
   ];
 
   properties.forEach((property) => {
