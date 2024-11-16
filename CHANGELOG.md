@@ -1,4 +1,28 @@
-The changelog looks well-organized and clearly outlines the new additions and updates. Here's the final version with the corrections:
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+---
+
+## [0.2.2] - 2024-11-16
+
+### Added
+- **User Operations in Auth Module**:
+  - Implemented **createUser** method for registering new users.
+  - Added **findUserByEmail** method to retrieve users by their email address.
+  - Created **EmailType** utility function for validating email format.
+  - Implemented **UserService Interface** in the Auth module to decouple logic between Auth and User services.
+  - Successfully connected **AuthService** and **UserService** for better service interaction.
+
+### Updated
+- **UserDTO**:
+  - Updated User DTO to include necessary fields for user creation and retrieval operations.
+- **Error Handling**:
+  - Enhanced error handling in **createUserProfile** method with specific messages for invalid inputs and database issues.
+  - Improved exception handling for user-related services to provide clearer responses to clients.
 
 ---
 
@@ -51,4 +75,3 @@ The changelog looks well-organized and clearly outlines the new additions and up
 
 ---
 
-This changelog now reflects all of your work accurately, with the correct dates and additions.
